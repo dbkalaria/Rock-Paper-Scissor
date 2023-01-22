@@ -1,3 +1,5 @@
+let playerScore = 0
+let computerScore = 0  
 const choices = ["rock", "paper", "scissor"]
 
 function getComputerSelection() {
@@ -6,7 +8,9 @@ function getComputerSelection() {
 }
 
 function playRound(playerSelection, computerSelection) {
-    if (playerSelection == "rock" && computerSelection == "scissor") {
+    if (playerSelection === computerSelection) {
+        return "Draw"
+    } else if (playerSelection == "rock" && computerSelection == "scissor") {
         return "player";
     } else if (playerSelection == "paper" && computerSelection == "rock") {
         return "player";
@@ -15,35 +19,34 @@ function playRound(playerSelection, computerSelection) {
     } else {
         return "computer";
     }
-}
+}  
 
-function game() {
-    let playerScore = 0
-    let computerScore = 0
+function game(playerSelection) {
+    const computerSelection = getComputerSelection();
+    const currentPlayerScore = document.getElementById("player-score");
+    const currentComputerScore = document.getElementById("computer-score");
 
-    while (playerScore < 5 && computerScore < 5) {
-        console.log(playerScore)
-        console.log(computerScore)
-        const computerSelection = getComputerSelection();
-        let playerSelection = prompt("Select between rock, paper or scissor.").toLowerCase();
-        while (true) {
-            if (choices.includes(playerSelection)) {
-                break
-            } else {
-                playerSelection = prompt("please select between rock, paper or scissor only!").toLowerCase();
-            }
-        }
+    round_winner = playRound(playerSelection, computerSelection);
 
-        round_winner = playRound(playerSelection, computerSelection);
-        if (round_winner == "player") {
-            playerScore++;
-        } else {
-            computerScore++;
-        }
-    } 
+    if (round_winner == "player") {
+        ++playerScore;
+        currentPlayerScore.innerHTML = playerScore;
+    } else if (round_winner == "computer") {
+        ++computerScore;
+        currentComputerScore.innerHTML = computerScore;
+    }
+
     if (playerScore === 5) {
-        alert("Hurray! You Win.");
-    } else {
-        alert("Computer Wins!");
+        playerScore = 0
+        computerScore = 0
+        currentPlayerScore.innerHTML = 0;
+        currentComputerScore.innerHTML = 0;
+        alert("Hurray! You Win.");   
+    } else if (computerScore === 5) {
+        playerScore = 0
+        computerScore = 0
+        currentPlayerScore.innerHTML = 0;
+        currentComputerScore.innerHTML = 0;
+        alert("Oops! Computer Wins.");
     }
 }
