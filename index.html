@@ -4,12 +4,46 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rock-Paper_Scissor Game</title>
+    <title>Rock Paper Scissor</title>
     <script src="script.js"></script>
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@900&family=Press+Start+2P&family=Roboto:ital,wght@0,400;0,500;0,700;0,900;1,400&display=swap" rel="stylesheet">
 
 </head>
 <body>
-    <p>Rock Paper Scissor game</p>  
-<input type = "button" onclick = "game()" value = "Play Game">  
+    <div class="header"><h1>ROCK PAPER SCISSOR</h1></div>
+    <div class="content">
+        <div class="container">
+            <div class="description">
+                <h2>Do you have skills to beat a Ro-(Bot)?</h2>
+                <h2>First to 5 wins!</h2>
+            </div>
+            <div class="summary">
+                <div class="player">
+                    <div class="score" id="player-score">0</div>
+                    <div class="name">You</div>
+                </div>
+                <div class="computer">
+                    <div class="score" id="computer-score">0</div>
+                    <div class="name">Computer</div>
+                </div>
+            </div>
+            <div class="options">
+                <button class="rock" onclick="game('rock')">
+                    <img src="./images/rock.svg" alt="">
+                </button>
+                <button class="paper" type="button" onclick="game('paper')" >
+                    <img src="./images/paper.svg" alt="">
+                </button>
+                <button class="scissor" type="button" onclick="game('scissor')">
+                    <img src="./images/scissor.svg" alt="">
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="footer">Created BY: Dhruv Kalaria</div>
 </body>
 </html>
