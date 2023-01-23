@@ -103,5 +103,18 @@ img {
 .footer {
     height: var(--footer-height);
 }
+@media screen and (max-width: 900px) {
+    .header {
+        font-size: 14px;
+    }
+    .rock,
+.paper,
+.scissor {
+    height: 70px;
+    width: 70px;
+    border-radius: 16px;
+    background-color: #50577A;
+}
+}
 
 
