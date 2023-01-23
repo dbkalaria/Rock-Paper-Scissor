@@ -115,6 +115,11 @@ img {
     border-radius: 16px;
     background-color: #50577A;
 }
+    img {
+    width: 80px;
+    height: 80px;
+}
+
 }
 
 
